@@ -1,3 +1,20 @@
-COMMENT: /#[^\n]/
+BOOLEAN: "true" | "false"
+VALUE: dict
+     | list
+     | STRING
+     | NUMBER
+     | "true" | "false" | "null"
 
+TABLE_PREFIX: "["
+TABLE_SUFFIX: "]"
+
+TABLE_COMPREHENSION: VALUE ("." VALUE)
+
+TABLE: TABLE_PREFIX TABLE_COMPREHENSION TABLE_SUFFIX
+
+COMMENT: /#[^\n]*/
+_NEWLINE: ( /\r?\n[\t ]*/ | COMMENT )+
+
+STRING : /[ubf]?r?("(?!"").*?(?<!\\)(\\\\)*?"|'(?!'').*?(?<!\\)(\\\\)*?')/i
+LONG_STRING: /[ubf]?r?(""".*?(?<!\\)(\\\\)*?"""|'''.*?(?<!\\)(\\\\)*?''')/is
 

@@ -1,15 +1,16 @@
 import sys
 
 from lark import Lark, Transformer, v_args
+from lark_grammar import toml
 
 
-toml_parser = Lark.open('lark_grammar/toml.lark',parser='lalr', **kwargs)
+toml_parser = Lark.open('../lark_grammar/toml.lark',parser='lalr', **kwargs)
 parse = toml_parser.parse
 
 
 def test():
     test_toml = '''
-        #
+        # this is a comment
     '''
 
     j = parse(test_toml)
