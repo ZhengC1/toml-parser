@@ -4,7 +4,7 @@ from lark import Lark, Transformer, v_args
 from lark_grammar import toml
 
 
-toml_parser = Lark.open('../lark_grammar/toml.lark',parser='lalr', **kwargs)
+toml_parser = Lark.open('../lark_grammar/toml.lark',parser='lalr')
 parse = toml_parser.parse
 
 
